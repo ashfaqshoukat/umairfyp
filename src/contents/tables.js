@@ -30,6 +30,9 @@ class Testing extends React.Component {
 	}
 
 	submitData() {
+
+
+
 		// const user = {
 		// 	name: this.state.name
 		// };
