@@ -15,6 +15,7 @@ class CustomerForm  extends React.Component{
     render() {
         return(
             <div>
+                <div>
                 <form className="form1"><br/>
                     <CustomerInput label="Customer Name" placeholde="Customer Name" value={this.state.customername}
                                    onChangeText={value => this.setState({customername: value})}/>
@@ -24,7 +25,10 @@ class CustomerForm  extends React.Component{
                                    onChangeText={value => this.setState({phonenbr: value})}/>
                                    <PrimaryButton onPressed={()=>{this.submitCustomerData()}}/>
                 </form>
+                </div>
+
             </div>
+
         )
     }
 

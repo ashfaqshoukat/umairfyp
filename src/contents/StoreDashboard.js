@@ -7,7 +7,7 @@ class StoreDashboard extends React.Component{
     render() {
         return(
             <Router>
-            <div>
+            <div className="storedashboar_style">
                 <button className={styles.btn}><Link to={'/customerform'} className="nav-link"> Add New Customer </Link></button>
                 <button><Link to={'/customerList'} className="nav-link"> View All Customer</Link></button>
 
@@ -17,6 +17,9 @@ class StoreDashboard extends React.Component{
                     <Route path='/customerList' component={CustomerList} />
                 </Switch>
             </div>
+                <div className="clear"/>
+
+
             </Router>
         )
     }

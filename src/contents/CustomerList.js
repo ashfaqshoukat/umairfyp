@@ -9,7 +9,9 @@ class CustomerList extends React.Component {
 
     render() {
         return(
-            this.renderCustomerList()
+            <div>
+                { this.renderCustomerList()}
+            </div>
         )
 
     }

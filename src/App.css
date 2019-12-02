@@ -185,3 +185,14 @@ button.btn{
   display: inline-block;
   font-size: 16px;
 }
+.storedashboar_style {
+  float: right;
+  width: 35%;
+}
+.customeritem_main {
+  float: left;
+  width: 35%;
+}
+.clear{
+  clear: both;
+}
