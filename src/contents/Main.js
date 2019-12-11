@@ -4,6 +4,7 @@ import Leftcont from  './content';
 import Testing from  './content';
 import Footer from "../footer/footer";
 import StoreDashboard from "./StoreDashboard";
+import Contactus from "../components/navbar/contactus";
 
 function Main() {
 	const [state,setState]=useState('home')
@@ -43,6 +44,11 @@ function Main() {
 		              </React.Fragment>
 	              )}
               </div>
+	      <div>
+		      {(state === 'contact') && (
+		      	<Contactus />
+		      )}
+	      </div>
 	      <div>
 	      </div>
 	      <div>

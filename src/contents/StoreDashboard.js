@@ -6,10 +6,10 @@ import styles from '../App.css'
 class StoreDashboard extends React.Component{
     render() {
         return(
-            <Router>
+            <Router className="maindashboard">
             <div className="storedashboar_style">
-                <button className={styles.btn}><Link to={'/customerform'} className="nav-link"> Add New Customer </Link></button>
-                <button><Link to={'/customerList'} className="nav-link"> View All Customer</Link></button>
+                <button className="addnew-btn"><Link to={'/customerform'} className="nav-link"> Add New Customer </Link></button>
+                <button className="customerrecord-btn"><Link to={'/customerList'} className="nav-link"> View All Customer</Link></button>
 
 
                 <Switch>
