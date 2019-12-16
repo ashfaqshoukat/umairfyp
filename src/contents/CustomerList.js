@@ -1,11 +1,20 @@
 import React from 'react';
 import CustomerItem from "../components/CustomerItem";
-
+import axios from 'axios'
 class CustomerList extends React.Component {
-    customerList = [
-        {'customername': 'Ashfaq', 'address': "lahore pakistan", 'phonenbr': "54354"},
-        {'customername': 'Ashfaq', 'address': "lahore pakistan", 'phonenbr': "54354"},
-    ]
+
+
+    constructor(props) {
+        super(props);
+        this.state={
+            customerList:[]
+        }
+
+    }
+
+    componentDidMount() {
+        this.getCustomerList()
+    }
 
     render() {
         return(
@@ -16,10 +25,21 @@ class CustomerList extends React.Component {
 
     }
 
+    getCustomerList() {
+        axios.get("http://localhost:8000/api/customer/").then(function (response) {
+            this.setState({customerList:response.data})
+
+
+        })
+        	.catch(function (err) {
+        		alert(JSON.stringify(err))
+        	})
+    }
+
 
     renderCustomerList() {
-        const listItems = this.customerList.map(({customername,address,phonenbr},index) =>
-            <CustomerItem onPressed={(indexs)=>{this.itemClicked(indexs)}}  indexs={index} address={customername} customername={address} phonenbr={phonenbr}/>
+        var listItems = this.state.customerList.map(({name,address,phone},index) =>
+            <CustomerItem onPressed={(indexs)=>{this.itemClicked(indexs)}}  indexs={index} address={address} customername={name} phonenbr={phone}/>
         )
         return listItems;
     }

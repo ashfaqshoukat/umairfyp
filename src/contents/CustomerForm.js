@@ -55,12 +55,7 @@ class CustomerForm extends React.Component {
 				alert(JSON.stringify(err))
 			})
 
-		// axios.get("http://localhost:8000/api/customer/").then(function (response) {
-		// 	alert(JSON.stringify(response))
-		// })
-		// 	.catch(function (err) {
-		// 		alert(JSON.stringify(err))
-		// 	})
+
 
 	}
 
