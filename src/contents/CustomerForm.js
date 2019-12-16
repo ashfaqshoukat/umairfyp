@@ -42,31 +42,25 @@ class CustomerForm extends React.Component {
 			address,
 			phonenbr
 		} = this.state
-		var config = {
-			headers: {
 
-				'Access-Control-Allow-Origin': '*'//siteA.com
-			}
-		}
-
-		// axios.post('http://192.168.1.10:8000/api/customer/create/', {
-		// 	"name": customername,
-		// 	"address": address,
-		// 	"phone": phonenbr
-		// }, config)
-		// 	.then(function (response) {
-		// 		alert('saved successfully')
-		// 	})
-		// 	.catch(function (err) {
-		// 		alert(JSON.stringify(err))
-		// 	})
-
-		axios.get("api/customer/").then(function (response) {
-			alert(JSON.stringify(response))
+		axios.post('http://localhost:8000/api/customer/create/', {
+			"name": customername,
+			"address": address,
+			"phone": phonenbr
 		})
+			.then(function (response) {
+				alert('saved successfully')
+			})
 			.catch(function (err) {
 				alert(JSON.stringify(err))
 			})
+
+		// axios.get("http://localhost:8000/api/customer/").then(function (response) {
+		// 	alert(JSON.stringify(response))
+		// })
+		// 	.catch(function (err) {
+		// 		alert(JSON.stringify(err))
+		// 	})
 
 	}
 
