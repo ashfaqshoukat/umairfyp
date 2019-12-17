@@ -44,7 +44,7 @@ class Testing extends React.Component {
 					<div>
 						<h2>Invoice For Customer</h2>
 					</div>
-
+				
 					<div className="form2">
 						<form className="store_invoice">
 
