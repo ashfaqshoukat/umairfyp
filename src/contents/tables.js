@@ -2,9 +2,7 @@ import React from 'react';
 import Input from '../components/Input'
 import CustomerInput from '../components/CustomerInput'
 // import axios from 'axios';
-
 class Testing extends React.Component {
-
 	constructor({props}) {
 		super(props)
 		this.state = {
@@ -21,18 +19,13 @@ class Testing extends React.Component {
 			phonenbr: ''
 		}
 	}
-
 	calculateAmount(value) {
 		var totalamout = this.state.size * this.state.quantity * value;
 		this.setState({price: value})
 		this.setState({totalamount: totalamout})
 
 	}
-
 	submitData() {
-
-
-
 		// const user = {
 		// 	name: this.state.name
 		// };
@@ -43,7 +36,6 @@ class Testing extends React.Component {
 		// 		console.log(res.data);
 		// 	})
 	}
-
 	render() {
 
 		return (
@@ -60,7 +52,6 @@ class Testing extends React.Component {
 						<CustomerInput label="Phone Number" placeholde="Phone number" value={this.state.phonenbr}
 						               onChangeText={value => this.setState({phonenbr: value})}/>
 					</form>
-
 					<div className="form2">
 						<form className="store_invoice">
 
@@ -79,7 +70,7 @@ class Testing extends React.Component {
 							<Input placeholde="price" value={this.state.price}
 							       onChangeText={value => this.calculateAmount(value)}/>
 							<Input placeholde="total amount" value={this.state.totalamount}/> <br/> <br/>
-							<a onClick={()=>this.submitData()}>Submit</a>
+							<a onClick={() => this.submitData()}>Submit</a>
 
 						</form>
 
@@ -89,7 +80,5 @@ class Testing extends React.Component {
 		)
 
 	}
-
 }
-
 export default Testing;

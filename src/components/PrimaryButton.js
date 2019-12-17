@@ -2,7 +2,7 @@ import React from 'react';
 
 const PrimaryButton=({onPressed})=>{
     return(
-        <button onClick={onPressed} style={styles}>SUBMIT</button>
+        <button onClick={(e)=>onPressed(e)} style={styles}>SUBMIT</button>
     )
 }
 

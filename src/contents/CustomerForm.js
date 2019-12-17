@@ -1,17 +1,26 @@
 import React from 'react';
 import CustomerInput from "../components/CustomerInput";
 import PrimaryButton from "../components/PrimaryButton";
+import Tables from './tables';
 import axios from 'axios'
 
 class CustomerForm extends React.Component {
 
-	constructor({props}) {
-		super(props)
-		this.state = {
-			customername: '',
+	state = {
+		form: {
+			name: '',
 			address: '',
-			phonenbr: ''
-		}
+			phone: ''
+		},
+		table:false
+	}
+	changeHandler = (event) => {
+		event.persist();
+		this.setState({
+			form:{
+				[event.target.name] : event.target.value
+			}
+		})
 	}
 
 	render() {
@@ -19,39 +28,49 @@ class CustomerForm extends React.Component {
 			<div>
 				<div>
 					<div className="form1"><br/>
-						<CustomerInput label="Customer Name" placeholde="Customer Name" value={this.state.customername}
-						               onChangeText={value => this.setState({customername: value})}/>
-						<CustomerInput label="Address" placeholde="Address" value={this.state.address}
-						               onChangeText={value => this.setState({address: value})}/>
-						<CustomerInput label="Phone Number" placeholde="Phone number" value={this.state.phonenbr}
-						               onChangeText={value => this.setState({phonenbr: value})}/>
-						<PrimaryButton onPressed={() => {
-							this.submitCustomerData()
-						}}/>
+						<CustomerInput label="Customer Name" name="name" placeholde="Customer Name" value={this.state.form.name}
+						               onChangeText={this.changeHandler}/>
+						<CustomerInput label="Address" name="address" placeholde="Address" value={this.state.form.address}
+						               onChangeText={this.changeHandler}/>
+						<CustomerInput label="Phone Number" name="phone" placeholde="Phone number" value={this.state.form.phone}
+						               onChangeText={this.changeHandler}/>
+						<PrimaryButton onPressed={this.submitCustomerData} />
 					</div>
 				</div>
+				{(this.state.table) && (
+					<Tables />
+				)}
 
 			</div>
 
 		)
 	}
 
-	submitCustomerData() {
-		const {
-			customername,
-			address,
-			phonenbr
-		} = this.state
-
-		axios.post('http://localhost:8000/api/customer/create/', {
-			"name": customername,
-			"address": address,
-			"phone": phonenbr
+	submitCustomerData = (e) => {
+		const options = {
+			url: "http://localhost:8000/api/customer/create/",
+			method:"post",
+			data: {
+				...this.state.form
+			},
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+		};
+		console.log(options)
+		axios(options).then((response) => {
+			console.log(response)
+		}).catch((err) => {
+			console.log(err.toJSON())
 		})
-			.then(function (response) {
+			.then((response) => {
+				this.setState({
+					table:true
+				})
 				alert('saved successfully')
 			})
-			.catch(function (err) {
+			.catch((err) => {
 				alert(JSON.stringify(err))
 			})
 

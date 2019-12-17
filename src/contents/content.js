@@ -8,7 +8,7 @@ function Content() {
             </div>
             <div className="rightcontent">
                 <h2>STORE</h2>
-                <p>This paragraph demonstrate about the store imply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently </p>
+                <p>The Organisation was started 25 years ago. The organization holds the dealership of Supreme Aluminium. Manufacturers of Aluminium Profiles for Windows, Door, Architectural & Industrial Applications.They provide the best discounts on their products and their product have Good Quality of aluminium in the finishing point of view and in the thickness point of view. They also provide the facility for their customer to provide the free delivery all over the Pakistan. supreme Aluminium is the best competitor to other Aluminium industry     </p>
             </div>
 
             <div className="clear"></div>
