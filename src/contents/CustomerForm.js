@@ -6,20 +6,24 @@ import axios from 'axios'
 
 class CustomerForm extends React.Component {
 
-	state = {
-		form: {
-			name: '',
-			address: '',
-			phone: ''
-		},
-		table: false
-	}
+    constructor(props) {
+        super(props);
+       this.state = {
+            name: '',
+            address: '',
+            phone: '',
+
+            table: false
+        }
+    }
+
+
 	changeHandler = (event) => {
 		event.persist();
 		this.setState({
-			form: {
+
 				[event.target.name]: event.target.value
-			}
+
 		})
 	}
 
@@ -29,14 +33,14 @@ class CustomerForm extends React.Component {
 				<div>
 					<div className="form1"><br/>
 						<CustomerInput label="Customer Name" name="name" placeholde="Customer Name"
-						               value={this.state.form.name}
-						               onChangeText={this.changeHandler}/>
+						               value={this.state.name}
+									   onChangeText={this.changeHandler}/>
 						<CustomerInput label="Address" name="address" placeholde="Address"
-						               value={this.state.form.address}
-						               onChangeText={this.changeHandler}/>
+						               value={this.state.address}
+									   onChangeText={this.changeHandler}/>
 						<CustomerInput label="Phone Number" name="phone" placeholde="Phone number"
-						               value={this.state.form.phone}
-						               onChangeText={this.changeHandler}/>
+						               value={this.state.phone}
+									   onChangeText={this.changeHandler}/>
 						<PrimaryButton onPressed={this.submitCustomerData}/>
 					</div>
 				</div>
@@ -50,17 +54,21 @@ class CustomerForm extends React.Component {
 	}
 
 	submitCustomerData = (e) => {
+
 		const options = {
 			url: "http://localhost:8000/api/customer/create/",
 			method: "post",
 			data: {
-				...this.state.form
+				name:this.state.name,
+                address: this.state.address,
+                phone: this.state.phone
 			},
 			headers: {
 				'Accept': 'application/json',
 				'Content-Type': 'application/json'
 			},
 		};
+
 		console.log(options)
 		axios(options).then((response) => {
 			console.log(response)
