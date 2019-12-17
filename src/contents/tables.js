@@ -44,14 +44,7 @@ class Testing extends React.Component {
 					<div>
 						<h2>Invoice For Customer</h2>
 					</div>
-					<form className="form1"><br/>
-						<CustomerInput label="Customer Name" placeholde="Customer Name" value={this.state.customername}
-						               onChangeText={value => this.setState({customername: value})}/>
-						<CustomerInput label="Address" placeholde="Address" value={this.state.address}
-						               onChangeText={value => this.setState({address: value})}/>
-						<CustomerInput label="Phone Number" placeholde="Phone number" value={this.state.phonenbr}
-						               onChangeText={value => this.setState({phonenbr: value})}/>
-					</form>
+
 					<div className="form2">
 						<form className="store_invoice">
 
